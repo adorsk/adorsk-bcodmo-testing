@@ -1,8 +1,10 @@
-import unittest
+import unittest2 as unittest
 
 class TestCase(unittest.TestCase):
 
-    def setUp(self): pass
+    def setUp(self):
+        super(TestCase, self).setUp()
     
-    def tearDown(self): pass
+    def tearDown(self): 
+        super(TestCase, self).tearDown()
 
