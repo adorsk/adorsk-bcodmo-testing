@@ -9,7 +9,6 @@ class TestMenu(d7_testcase.TestCase):
 
     def testAffiliations(self):
         wd = self.getWebDriver()
-        wd.get(self.base_url)
         
         # Click affiliations link.
         wd.find_element('xpath', "%s//a[contains(text(), 'Affiliations')]" % self.menu_xpath).click()
