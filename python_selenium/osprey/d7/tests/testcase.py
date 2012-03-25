@@ -8,7 +8,8 @@ class TestCase(osprey_selenium_testcase.TestCase):
         self.base_url = d7_conf.conf['base_url']
 
     def assertDrupalErrorNotPresent(self,webdriver):
-        self.assertTrue(len(webdriver.find_elements('css', "div.messages.error")) == 0)
+        elements = webdriver.find_elements('css', "div.messages.error")
+        self.assertIsNone(elements, "Drupal error message exists.")
     
     def tearDown(self):
         super(TestCase, self).tearDown()

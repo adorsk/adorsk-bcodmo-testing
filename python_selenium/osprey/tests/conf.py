@@ -6,8 +6,8 @@ import os
 conf = {
         "base_url": '',
         "timeout": 10,
-        "selenium_jar": '',
-        "test_report_dir": ''
+        "selenium_jar": '/tmp/selenium.jar',
+        "test_report_dir": "/tmp/test-reports.%s" % os.getpid()
         }
 
 conf.update(secrets.secrets)

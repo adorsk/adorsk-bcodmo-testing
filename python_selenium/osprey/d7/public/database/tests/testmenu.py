@@ -9,12 +9,18 @@ class TestMenu(d7_testcase.TestCase):
 
     def testAffiliations(self):
         wd = self.getWebDriver()
+
+        #  Go to base url.
+        print "Start page: %s" % self.base_url
+        wd.get(self.base_url)
         
         # Click affiliations link.
+        print "Clicking 'Affiliations' link"
         wd.find_element('xpath', "%s//a[contains(text(), 'Affiliations')]" % self.menu_xpath).click()
         self.assertDrupalErrorNotPresent(wd)
        
         # Click NSF link.
+        print "Clicking 'National Science Foundation Link'"
         wd.find_element('xpath', "//table//a[contains(text(),'National Science Foundation')]").click()
         self.assertDrupalErrorNotPresent(wd)
 
