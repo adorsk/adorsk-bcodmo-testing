@@ -13,6 +13,7 @@ class TestMenu(d7_testcase.TestCase):
         #  Go to base url.
         print "Start page: %s" % self.base_url
         wd.get(self.base_url)
+        #wd.get_screenshot_as_file('/tmp/foo.png')
         
         # Click affiliations link.
         print "Clicking 'Affiliations' link"

@@ -8,6 +8,7 @@ import socket
 
 from pyvirtualdisplay import Display
 from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 class TestCase(testcase.TestCase):
 
@@ -27,12 +28,12 @@ class TestCase(testcase.TestCase):
         self.wd = None
         try:
             self.wd = webdriver.Remote("http://localhost:4444/wd/hub", webdriver.DesiredCapabilities.FIREFOX)
-            #wd = webdriver.Remote("http://localhost:4444/wd/hub", webdriver.DesiredCapabilities.HTMLUNIT)
         except socket.error as err:
             time.sleep(1)
         if not self.wd: raise Exception, "Could not create webdriver."
 
     def tearDown(self):
+        self.wd.quit()
 
         # Stop selenium child process.
         self.selenium_proc.terminate()
