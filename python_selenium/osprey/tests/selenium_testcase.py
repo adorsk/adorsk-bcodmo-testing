@@ -42,6 +42,12 @@ class TestCase(testcase.TestCase):
         self.display.stop()
         super(TestCase, self).tearDown()
 
-    def getWebDriver(self):
-        return self.wd
+    def logCurrentScreenShot(self, name=None):
+        if not name:
+            name = "screenshot.{}".format(time.time())
+        screenshot_file = "{}/{}.png".format(osprey_conf.conf.get('test_artifacts_dir', '/tmp'), name)
+        self.wd.get_screenshot_as_file(screenshot_file)
+        print "[[ATTACHMENT|{}]]".format(screenshot_file)
+
+
 
